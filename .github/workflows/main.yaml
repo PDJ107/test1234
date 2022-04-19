@@ -25,6 +25,7 @@ jobs:
         echo "::set-output name=first_value::$var_1"
 
     - name: 'Check output value on ${{ matrix.os }}'
+      if: matrix.os == 'ubuntu-latest'
       shell: pwsh
       run: |
         echo "${{ steps.first.outputs.first_value }}"
