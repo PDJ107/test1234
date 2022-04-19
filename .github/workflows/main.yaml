@@ -1,6 +1,18 @@
 name: 'SWM GitHub Actions Basic'
 
-on: [ 'push', 'pull_request' ]
+on: 
+  push:
+    branches:
+      - master
+      - main
+      - 'feature/*'
+      - 'release/*'
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - master
+  
 
 jobs:
   first-job: 
