@@ -22,7 +22,7 @@ jobs:
       shell: bash
       run: |
         echo "Hello World from ${{ github.ref }}"
-      
+        echo "This is feature branch"
 
 
     
