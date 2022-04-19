@@ -20,7 +20,7 @@ jobs:
         --header "Authorization: Bearer ${{ secrets.WEBEX_TOKEN }}" \
         --header "Content-Type: application/json" \
         --data-raw '{
-          "roomId": "${{ secrets.WEBEX_ROOM_ID}}",
+          "roomId": "${{ secrets.WEBEX_ROOM_ID }}",
           "text": "Messabe sent by GitHub Actions from ${{ github.repository }}",
           "markdown": Messabe sent by **GitHub Actions** from ${{ github.repository }}"
         }'
