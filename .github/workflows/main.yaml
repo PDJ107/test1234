@@ -18,11 +18,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Say Hello World from ${{ github.ref }}
+    - name: "Say Hello World 1"
       shell: bash
       run: |
-        echo "Hello World from ${{ github.ref }}"
-      
+        echo "Hello World from first job"
 
+  second-job: 
+    name: 'Second Job'
+    needs: first-job
 
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: "Say Hello World 2"
+      shell: bash
+      run: |
+        echo "Hello World from second job"
     
+    third-job: 
+    name: 'Third Job'
+    needs: first-job
+    
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: "Say Hello World 3"
+      shell: bash
+      run: |
+        echo "Hello World from third job"
