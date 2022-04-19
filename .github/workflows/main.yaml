@@ -13,14 +13,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: "Send message to webex Space"
-      shell: bash
-      uses: actions/checkout@v2
-      with:
-        webexToken: ${{ secrets.WEBEX_TOKEN }}
-        webexRoomId: ${{ secrets.WEBEX_ROOM_ID }}
-        bodyText: "Message sent by GitHub Actions from ${{ github.repository }}"
-        bodyMarkdown: "Message sent by **GitHub Actions** from ${{ github.repository }}"
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Send message to Webex space
+        uses: ./
+        
+        with:
+          webexToken: ${{ secrets.WEBEX_TOKEN }}
+          webexRoomId: ${{ secrets.WEBEX_ROOM_ID }}
+          bodyText: "Message sent by GitHub Actions from ${{ github.repository }}"
+          bodyMarkdown: "Message sent by **GitHub Actions** from ${{ github.repository }}"
 
       # run: |
       #   curl --location --request POST 'https://webexapis.com/v1/messages' \
